@@ -18,10 +18,10 @@
 #' @details
 #'  The following features are allowed for this method:
 #'  \describe{
-#'    \item{"average.leaf.corrobation"}{Represents the.number of examples that
+#'    \item{"average.leaf.corrobation"}{Represents the number of examples that
 #'      belong to each leaf in the DT model divided by the number of examples in
 #'      the dataset.}
-#'    \item{"branch.length"}{Represents the.size of each leaf in the DT model.}
+#'    \item{"branch.length"}{Represents the size of each leaf in the DT model.}
 #'    \item{"depth"}{Represents the size of each path in the DT model.}
 #'    \item{"homogeneity"}{Represents the number of leaves divided by the
 #'      strutural shape of the DT model.}
