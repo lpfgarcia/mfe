@@ -105,9 +105,9 @@ mf.model.based.formula <- function(formula, data, features="all",
   modFrame <- stats::model.frame(formula, data)
   attr(modFrame,"terms") <- NULL
 
-  if(min(table(modFrame[,1])) < 2) {
-    stop("number of examples in the minority class should be >= 2")
-  }
+#  if(min(table(modFrame[,1])) < 2) {
+#    stop("number of examples in the minority class should be >= 2")
+#  }
 
   if(features[1] == "all") {
     features <- ls.model.based()
@@ -156,10 +156,7 @@ average.leaf.corrobation <- function(model, data, ...) {
 }
 
 variable.importance <- function(model, ...) {
-  aux <- attr(model$terms, "term.labels")
-  aux <- stats::setNames(rep(0, length(aux)), aux)
-  aux[names(model$variable.importance)] <- model$variable.importance
-  return(aux)
+  model$variable.importance
 }
 
 depth <- function(model, ...) {
@@ -173,11 +170,7 @@ max.depth <- function(model, ...) {
 }
 
 repeated.nodes <- function(model, data, ...) {
-  aux <- attr(model$terms, "term.labels")
-  aux <- stats::setNames(rep(0, length(aux)), aux)
-  tmp <- table(factor(model$frame$var[model$frame$var != "<leaf>"]))
-  aux[names(tmp)] <- tmp
-  return(aux)
+  table(factor(model$frame$var[model$frame$var != "<leaf>"]))
 }
 
 shape <- function(model, ...) {
@@ -200,10 +193,9 @@ branch.length <- function(model, ...) {
 
 nodes.per.level <- function(model, ...) {
   aux <- depth(model)[model$frame$var != "<leaf>"]
+  aux <- table(factor(aux))
   if(length(aux) <= 1) {
     return(c(0, 0))
   }
-  sapply(0:max(aux), function(d) {
-    sum(aux == d)
-  })
+  return(aux)
 }
