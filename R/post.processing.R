@@ -89,6 +89,13 @@ non.aggregated <- function (x, ...) {
   x
 }
 
+multiple <- function(x) {
+  if(length(x) <= 1) {
+    return(c(x, x))
+  }
+  return(x)
+}
+
 hist <- function(x, bins=10, min=base::min(x), max=base::max(x), ...){
   breaks <- seq(min, max, length.out=bins+1)
   graphics::hist(x, breaks=breaks, plot=FALSE)$counts / length(x)

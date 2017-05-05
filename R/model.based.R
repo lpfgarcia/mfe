@@ -152,7 +152,8 @@ average.leaf.corrobation <- function(model, data, ...) {
 }
 
 variable.importance <- function(model, ...) {
-  model$variable.importance
+  aux <- model$variable.importance
+  return(multiple(aux))
 }
 
 depth <- function(model, ...) {
@@ -166,7 +167,8 @@ max.depth <- function(model, ...) {
 }
 
 repeated.nodes <- function(model, data, ...) {
-  table(factor(model$frame$var[model$frame$var != "<leaf>"]))
+  aux <- table(factor(model$frame$var[model$frame$var != "<leaf>"]))
+  return(multiple(aux))
 }
 
 shape <- function(model, ...) {
@@ -190,8 +192,6 @@ branch.length <- function(model, ...) {
 nodes.per.level <- function(model, ...) {
   aux <- depth(model)[model$frame$var != "<leaf>"]
   aux <- table(factor(aux))
-  if(length(aux) <= 1) {
-    return(c(0, 0))
-  }
-  return(aux)
+  return(multiple(aux))
 }
+
