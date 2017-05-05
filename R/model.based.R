@@ -130,6 +130,14 @@ ls.model.based <- function() {
     "nodes.per.level", "repeated.nodes", "shape", "variable.importance")
 }
 
+multiple <- function(x) {
+  x <- as.numeric(x)
+  if(length(x) <= 1) {
+    return(c(x, x))
+  }
+  return(x)
+}
+
 dt.model <- function(formula, data, ...) {
   rpart::rpart(formula, data, method="class",
     control=rpart::rpart.control(maxsurrogate=0))

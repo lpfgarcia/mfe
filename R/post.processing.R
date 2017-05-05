@@ -19,7 +19,7 @@
 #'  summarize a set of values for each meta-features. For instance, a measure
 #'  computed for each attribute can be summarized using the \code{"mean"} and/or
 #'  \code{"sd"}. Mandatorily, a single value always use the
-#'  \code{"non.aggregated"} function.
+#'  \code{"return"} function.
 #'
 #'  In addition to the native functions available in R, the following functions
 #'  can be used:
@@ -41,7 +41,7 @@
 #'    \item{"sd"}{See \code{\link{sd}}}
 #'    \item{"skewness"}{See \code{\link[e1071]{skewness}}}
 #'    \item{"var"}{See \code{\link{var}}}
-#'    \item{"non.aggregated"}{Returns the original value(s) of the
+#'    \item{"return"}{Returns the original value(s) of the
 #'       meta-feature.}
 #'  }
 #'  These functions are not restrictive, thus another functions can be applied
@@ -83,17 +83,6 @@ post.processing <- function(measure, summary=c("mean", "sd"), ...) {
   }, simplify=FALSE)
 
   unlist(res)
-}
-
-non.aggregated <- function (x, ...) {
-  x
-}
-
-multiple <- function(x) {
-  if(length(x) <= 1) {
-    return(c(x, x))
-  }
-  return(x)
 }
 
 hist <- function(x, bins=10, min=base::min(x), max=base::max(x), ...){
