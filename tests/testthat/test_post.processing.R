@@ -4,8 +4,8 @@ test_that("post.processing", {
   expect_equal(post.processing(1), c(1))
   expect_equal(post.processing(1:10, c("min", "max")), c(min=1, max=10))
 
-  #Non.aggregating
-  expect_equal(post.processing(1:10, "non.aggregated"), c(1:10), check.names=FALSE)
+  #return
+  expect_equal(post.processing(1:10, "return"), c(1:10), check.names=FALSE)
 
   #Mode
   expect_equal(post.processing(c(1,1,2,2,2,4,4,4,4), "mode"), c(mode=4))

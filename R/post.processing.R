@@ -10,7 +10,7 @@
 #' @param ... Extra values used to the functions.
 #' @details
 #'  The post processing functions are used to summarize the meta-features.
-#'  They are organized into three groups: non-aggregated, descriptive
+#'  They are organized into three groups: return, descriptive
 #'  statistic and distribution. Currently, the hypothesis testing post
 #'  processing are not supported.
 #'

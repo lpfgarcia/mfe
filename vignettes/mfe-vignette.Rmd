@@ -339,7 +339,7 @@ mf.statistical(Species ~ ., iris, "correlation", summary="quantile")
 ```
 
 Beyond these R default methods, two additional post processing methods are 
-available in the `mfe` package: `hist` and `non.aggregated`. The first computes 
+available in the `mfe` package: `hist` and `return`. The first computes 
 a histogram of the values and returns the frequencies of in each bins. The extra
 parameters `bins` can be used to define the number of values to be returned. The
  parameters `min` and `max` are used to define the range of the data. The second
@@ -355,7 +355,7 @@ mf.statistical(Species ~ ., iris, "correlation",
                summary="hist", bins=5, min=0, max=1)
 
 ## Extract all correlation values
-mf.statistical(Species ~ ., iris, "correlation", summary="non.aggregated", 
+mf.statistical(Species ~ ., iris, "correlation", summary="return", 
                by.class=FALSE)
 ```
 

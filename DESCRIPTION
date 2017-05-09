@@ -1,7 +1,7 @@
 Package: mfe
 Type: Package
 Title: Meta-Feature Extractor
-Version: 0.1.1.9006
+Version: 0.1.1.9007
 Date: 2017-01-27
 Authors@R: c(person("Adriano", "Rivolli", email="rivolli@utfpr.edu.br", 
   role=c("aut", "cre")), person("Luis Paulo", "F. Garcia", 
@@ -14,25 +14,25 @@ Description: Extracts meta-features from datasets to support the design of recom
   characterization measures. By making available a large set of meta-feature extraction functions, 
   this package allows a comprehensive data characterization, a deep data exploration and a large 
   number of Meta-Learning based data analysis. These concepts are described in the paper: 
-  Pinto, F., Soares C., and Mendes-Moreira J. (2016). Towards Automatic Generation of Metafeatures. 
+  Pinto F., Soares C. and Mendes-Moreira J. (2016). Towards Automatic Generation of Metafeatures. 
   In Pacific-Asia Conference on Knowledge Discovery and Data Mining (PAKDD). pp 215-226. 
   <doi:10.1007/978-3-319-31753-3_18>
 URL: https://github.com/rivolli/mfe
 Depends:
-    R (>= 3.3.1),
+  R (>= 3.3.1),
 Imports:
-    C50,
-    e1071,
-    infotheo,
-    kknn,
-    MASS,
-    rpart,
-    stats,
-    utils
+  C50,
+  e1071,
+  infotheo,
+  kknn,
+  MASS,
+  rpart,
+  stats,
+  utils
 Suggests:
-    knitr,
-    rmarkdown,
-    testthat
+  knitr,
+  rmarkdown,
+  testthat
 License: GPL | file LICENSE
 LazyData: true
 BugReports: https://github.com/rivolli/mfe/issues
