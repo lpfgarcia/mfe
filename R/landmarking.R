@@ -6,12 +6,12 @@
 #' problems, a decomposition strategy is applied.
 #'
 #' @family meta-features
-#' @param x A data.frame contained only the input attributes
+#' @param x A data.frame contained only the input attributes.
 #' @param y A factor response vector with one label for each row/component of x.
 #' @param features A list of features names or \code{"all"} to include all them.
 #' @param summary A list of methods to summarize the results as post-processing
-#'  functions. See \link{post.processing} method to more information. (Default:
-#'  \code{c("mean", "sd")})
+#'  functions. See \link{post.processing} method to more information (Default:
+#'  \code{c("mean", "sd")}).
 #' @param map A list of decomposition strategies for multi-class classification
 #'  problems. The options are: \code{"one.vs.all"} and \code{"one.vs.one"}
 #'  strategy.
@@ -20,9 +20,9 @@
 #' @param ... Optional arguments to the summary methods.
 #' @param formula A formula to define the class column.
 #' @param data A data.frame dataset contained the input attributes and class.
-#'  The details section describes the valid values for this group.
 #' @param transform.attr A logical value indicating if the categorical
 #'  attributes should be transformed to numerical.
+#'  The details section describes the valid values for this group.
 #' @details
 #'  The following features are allowed for this method:
 #'  \describe{
@@ -42,10 +42,9 @@
 #'    \item{"nearest.neighbor"}{This measure evaluate the performance of the
 #'      1-Nearest Neighbor classifier. It uses the euclidean distance of the
 #'      nearest neighbor to determine how noisy is the data.}
-#'    \item{"worst.node"}{Construct a single DT node model induced by the
-#'      less informative attribute. With the "decision.stumps" measure is
-#'      possible to define a baseline value of linear separability for a
-#'      dataset.}
+#'    \item{"worst.node"}{Construct a single DT node model induced by the less 
+#'      informative attribute. With the "decision.stumps" measure is possible to
+#'      define a baseline value of linear separability for dataset.}
 #'  }
 #' @return Each one of these meta-features generate multiple values (by fold
 #'  and/or binary dataset) and then it is post processed by the summary methods.
