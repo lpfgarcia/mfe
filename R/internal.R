@@ -41,9 +41,11 @@ validate.and.replace.numeric.attr <- function(x, transform.attr) {
 
 createFolds <- function(y, folds) {
 
-  if(folds <= 1L | folds > min(table(y))) {
-    stop("folds argument must be an integer > 1 and <= the number of examples in
-      the minority class")
+  if(folds <= 1L) {
+    stop("folds argument must be an integer > 1")
+  } else if(folds > min(table(y))) {
+    warning("folds argument is >= the number of examples in the minority class")
+    folds <- min(table(y))
   }
 
   names(y) <- 1:length(y)

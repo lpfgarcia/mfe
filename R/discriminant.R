@@ -160,6 +160,7 @@ center.of.gravity <- function(x, y, ...) {
 
 discfct <- function(x, y, extra, ...) {
   #TODO Confirm if the use of levels normalizes the measure
+  #browser()
   length(extra$cancor$cor) / nlevels(y)
 }
 
