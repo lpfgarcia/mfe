@@ -1,5 +1,5 @@
 replace.nominal.columns <- function(x) {
-  att <- paste(colnames(x), collapse="+")
+  att <- paste("`", colnames(x), "`", collapse="+", sep='')
   x <- stats::model.matrix(stats::formula(paste("~ 0 +", att, sep=" ")), x)
   return(x)
 }
