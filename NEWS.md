@@ -2,6 +2,7 @@
 
 ### Minor changes
 * Add `transform.attr` parameter to control parameter transformations
+* Set the fold value when the minority class is low, change error to warning
 
 ### Bugfixes
 * Specific errors about minority class with an unique instance
