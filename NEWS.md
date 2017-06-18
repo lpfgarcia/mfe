@@ -9,6 +9,7 @@
 * Change class to kknn pakcage in landmarking 1nn and eliteNN
 * Some measures fixes and improvements
 * replace.nominal.columns for attributes named with numerals
+* normality test return NA when it finds some error
 
 # First release of **mfe** [current]:
 

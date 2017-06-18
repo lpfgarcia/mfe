@@ -99,6 +99,7 @@ mf.landmarking.default <- function(x, y, features="all",
   if(nrow(x) != length(y)) {
     stop("x and y must have same number of rows")
   }
+  colnames(x) <- paste('mf', colnames(x), sep='.')
 
   map <- match.arg(map)
   if(features[1] == "all") {
@@ -229,6 +230,7 @@ nearest.neighbor <- function(x, y, split, transform.attr=TRUE, ...) {
 
 elite.nearest.neighbor <- function(x, y, split, transform.attr=TRUE, ...) {
 
+  aux <- x
   x <- validate.and.replace.nominal.attr(x, transform.attr)
   aux <- sapply(split, function(test) {
     imp <- dt.importance(x, y, test)

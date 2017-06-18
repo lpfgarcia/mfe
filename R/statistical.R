@@ -230,11 +230,17 @@ mad <- function(x, ...) {
 
 normality <- function(x, ...) {
   #TODO original method uses Kolmogorov-Smirnov test
+
   res <- apply(x, 2, function(col) {
-    #shapiro.test requires sample size between 3 and 5000
-    stats::shapiro.test(sample(col, min(length(col), 5000)))$p.value
+    tryCatch({
+      #shapiro.test requires sample size between 3 and 5000
+      stats::shapiro.test(sample(col, min(length(col), 5000)))$p.value
+    }, error = function(e) {
+      return(NA) #TODO
+    })
   })
   sum(res < 0.05)
+
 }
 
 outliers <- function(x, alpha=0.05, ...) {
