@@ -99,7 +99,6 @@ mf.landmarking.default <- function(x, y, features="all",
   if(nrow(x) != length(y)) {
     stop("x and y must have same number of rows")
   }
-  colnames(x) <- paste('mf', colnames(x), sep='.')
 
   map <- match.arg(map)
   if(features[1] == "all") {
@@ -107,6 +106,7 @@ mf.landmarking.default <- function(x, y, features="all",
   }
   features <- match.arg(features, ls.landmarking(), TRUE)
 
+  colnames(x) <- paste('mf', gsub(" ", ".", colnames(x)), sep='.')
   data <- eval(call(map, x, y))
   split <- lapply(data, function(i) {
     createFolds(i[[2]], folds=folds)

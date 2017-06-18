@@ -8,7 +8,7 @@
 * Specific errors about minority class with an unique instance
 * Change class to kknn pakcage in landmarking 1nn and eliteNN
 * Some measures fixes and improvements
-* replace.nominal.columns for attributes named with numerals
+* Fix replace.nominal.columns for attributes named with numerals and spaces
 * normality test return NA when it finds some error
 
 # First release of **mfe** [current]:

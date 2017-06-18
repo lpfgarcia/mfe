@@ -90,6 +90,7 @@ mf.discriminant.default <- function(x, y, features="all", transform.attr=TRUE,
   }
   features <- match.arg(features, ls.discriminant(), TRUE)
 
+  colnames(x) <- paste('mf', gsub(" ", ".", colnames(x)), sep='.')
   numdata <- validate.and.replace.nominal.attr(x, transform.attr)
 
   y.num <- replace.nominal.columns(as.data.frame(y))
