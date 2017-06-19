@@ -114,7 +114,7 @@ mf.statistical.default <- function(x, y, features="all",
   }
   features <- match.arg(features, ls.statistical(), TRUE)
 
-  colnames(x) <- paste('mf', gsub(" ", ".", colnames(x)), sep='.')
+  colnames(x) <- paste("a", seq(ncol(x)), sep='')
   numdata <- validate.and.replace.nominal.attr(x, transform.attr)
 
   if(by.class) {

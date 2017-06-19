@@ -106,7 +106,7 @@ mf.landmarking.default <- function(x, y, features="all",
   }
   features <- match.arg(features, ls.landmarking(), TRUE)
 
-  colnames(x) <- paste('mf', gsub(" ", ".", colnames(x)), sep='.')
+  colnames(x) <- paste("a", seq(ncol(x)), sep='')
   data <- eval(call(map, x, y))
   split <- lapply(data, function(i) {
     createFolds(i[[2]], folds=folds)
