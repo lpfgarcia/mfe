@@ -1,7 +1,19 @@
 replace.nominal.columns <- function(x) {
-  att <- paste(colnames(x), collapse="+")
-  x <- stats::model.matrix(stats::formula(paste("~ 0 +", att, sep=" ")), x)
-  return(x)
+  # att <- paste(colnames(x), collapse="+")
+  # x <- stats::model.matrix(stats::formula(paste("~ 0 +", att, sep=" ")), x)
+  # return(x)
+  numcols <- sapply(x, is.numeric)
+  if(!all(numcols)) {
+    new.data <- do.call(cbind, sapply(x[!numcols], function(col) {
+      col <- as.factor(col)
+      sapply(levels(col), function(symbol) {
+        as.integer(col == symbol)
+      })
+    }, simplify=FALSE))
+    x <- cbind(x[numcols], new.data)
+    colnames(x) <- make.names(colnames(x))
+  }
+  x
 }
 
 replace.numeric.columns <- function(x) {
